@@ -1,3 +1,6 @@
+import Employee from "file.js";
+const Employee = require('file.js');
+var emp = new Employee();
 // variables
 const ename = document.getElementById("name");
 const ename22 = document.getElementById("name");
@@ -7,8 +10,6 @@ const gender = document.getElementById("Gender");
 const day = document.getElementById("Day");
 const month = document.getElementById("Month");
 const year = document.getElementById("Year");
-
-
 
 
 function showError(input, msg){
@@ -25,6 +26,7 @@ function showSucess(input){
     if(small.value != ''){
     small.style.display="none"}
 }
+
 //input value
 
 function checkName(){
