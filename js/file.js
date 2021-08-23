@@ -1,12 +1,12 @@
 // variables
-const ename = document.getElementById("name");
-const ename22 = document.getElementById("name");
+// const ename = document.getElementById("name");
+// const ename22 = document.getElementById("name");
 
-const profile = document.getElementById("profile");
-const gender = document.getElementById("Gender");
-const day = document.getElementById("Day");
-const month = document.getElementById("Month");
-const year = document.getElementById("Year");
+// const profile = document.getElementById("profile");
+// const gender = document.getElementById("Gender");
+// const day = document.getElementById("Day");
+// const month = document.getElementById("Month");
+// const year = document.getElementById("Year");
 export default class Employee{
     constructor(){}
     setEname(ename){

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payroll Home page</title>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href ="../css/home.css">
+</head>
+<body>
+    <!-- UC1 -->
+    <nav class="topHead">
+        <div class="logo">
+            <img class="logo-align"src="../assets/logo/logo.png" alt="logo">
+            <!-- <span>Employee</span><br><span>Payroll</span> -->
+            
+            <div class="logo-align"> <b><span style="color: #699D00; font-weight: 900;letter-spacing: 2px;">EMPLOYEE</span><br>
+                <span style="font-weight: 900; letter-spacing: 2px;"> PAYROLL </span></b></div>
+        </div>
+        
+        <!-- <div>EMPLOYEE <br> PAYROLL</div> -->
+        <div class="headName"></div>
+    </nav>
+
+
+        <!-- <div>EMPLOYEE <br> PAYROLL</div> -->
+        <!-- Uc2 -->
+    <div class="formDesign">
+
+        <div class = "body-header">
+            <div class = "left">
+                <div class = "header"><b>Employee Details</b></div>
+                ( <div class = "number" id="number">10</div>)
+            </div>
+            <div class = "right">
+                <button class = "searchbtn">  
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+                <button class = "adduserbtn"><svg xmlns="http://www.w3.org/2000/svg" width="20px"; height="20px"; margin-bottom="-3px"><path d="M0 0h24v24H0z" fill="none"/><path fill="#ffffff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Add User </button>
+            </div>
+        </div>
+
+
+<!--         
+        <div align="center">
+             UC3 
+            <table id="EmpData">
+                <!-- <colgroup>
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 50%;">
+                    <col span="1" style="width: 20%;">
+                    <col span="1" style="width: 35%;">
+                    <col span="1" style="width: 15%;">
+                    <col span="1" style="width: 25%;">
+                    <col span="1" style="width: 15%;">
+
+                 </colgroup>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Gender</th>
+    
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Start Date</th>
+                    <th>Actions</th>
+
+    
+                </tr>
+
+
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td><span>&#8377;</span>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td><span>&#8377;</span> 100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td><span>&#8377;</span>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td><span>&#8377;</span>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+
+                </tr>
+                <tr>
+                    <td><img src="../assets/img/Ellipse -1.png" alt="prfile"></td>
+                    <td>FirstName MiddleName LastName</td>
+                    <td>Male</td>
+                    <td> <div class="divDept"> <label class="deptSales">Sales</label> <label class="deptHr">HR</label> <label class="deptFinance">Finance</label></div></td>
+                    <td>100000</td>
+                    <td>31/10/2012</td>
+                    <td><div class="divDept"><input type="image" class="actionImg"src="../assets/img/delete_ic.png"><input type="image" class="actionImg" src="../assets/img/edit_ic.png"></div></td>
+
+
+                </tr> 
+            </table>
+            <script src="../js/table.js"></script>
+        </div>
+         -->
+
+    </div>
+</body>
+</html>

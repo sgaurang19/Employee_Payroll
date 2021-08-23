@@ -1,15 +1,15 @@
-import Employee from "file.js";
-const Employee = require('file.js');
-var emp = new Employee();
-// variables
+
 const ename = document.getElementById("name");
 const ename22 = document.getElementById("name");
 
-const profile = document.getElementById("profile");
-const gender = document.getElementById("Gender");
+// const profile = document.getElementById("profile");
+// const gender = document.getElementById("Gender");
+const profile123 =document.getElementsByName("profile");
+const gender123 = document.getElementsByName("Gender");
 const day = document.getElementById("Day");
 const month = document.getElementById("Month");
 const year = document.getElementById("Year");
+const dept = document.getElementsByClassName("checkbox"); 
 
 
 function showError(input, msg){
@@ -161,11 +161,67 @@ function checkDate(day, month, year){
 
     
 }
+function getRadio(profile){
+    for(var i = 0 ; i< profile.length ; i++){
+        if(profile[i].checked){
+           
+            return profile[i].value;
+        }
+    }
+}
+function getValuesCheck(dept){
+    let deptli = new Array();
+    for(var i = 0; i< dept.length; i++){
+        if(dept[i].checked){
+            deptli.push(dept[i].value);
+        }
+    }
+    return deptli;
+}
+function UpdateStorage(newdata){
+    var EmpPayrollList = JSON.parse(localStorage.getItem("EmpPayrollList"));
+    if(EmpPayrollList != null){
+        EmpPayrollList.push(newdata);
+    }
+    else{
+        EmpPayrollList = [newData];
+    }
+    localStorage.setItem("EmpPayrollList", JSON.stringify(EmpPayrollList));
+}
 
+let newData = {
+
+};
 const validate = () =>{
 
-    checkUsername(ename);
-    checkProfile(profile);
-    checkGender(gender);
+    
+
+
+    try{
+        checkUsername(ename);
+    var pro = getRadio(profile123);
+    // checkProfile(profile);
+    // checkGender(gender);
+    var gen = getRadio(gender123);
     checkDate(day, month, year);
+    var deptlist = getValuesCheck(dept);
+        newData._name = ename.value;
+        newData._profile_img = pro;
+        newData._gender = gen;
+        newData._dept = deptlist;
+        newData._salary = document.getElementById("Salary1").value;
+        let dateContent = new Array();
+        dateContent.push(day.value);
+        dateContent.push(month.value);
+        dateContent.push(year.value);
+        newData._doj = dateContent;
+
+        console.log(newData);
+        UpdateStorage(newData);
+
+
+    }catch(e){
+        console.log(e);
+    }
+
 }
