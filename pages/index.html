@@ -7,7 +7,7 @@
     <title>Employee Payroll</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body onload="checkPage()">
     <!-- UC1 -->
     <nav class="topHead">
         <div class="logo">
@@ -30,7 +30,7 @@
     <div  >
         
         
-        <form class="form">
+        <form class="form" id ="EmpForm">
             <div class="headForm"><h2>Employee Payroll Form</h2></div>
             <!-- UC2 -->
         <div class="row">
@@ -62,8 +62,8 @@
         <div class ="row">
             <label class="label-text" for="Gender">Gender</label>
             <div class="input-text">
-                <input type="radio" name="Gender" id="Gender1"value="m">Male
-                <input type="radio" name="Gender" id="Gender2" value="f">Female
+                <input type="radio" name="Gender" id="Gender1"value="Male">Male
+                <input type="radio" name="Gender" id="Gender2" value="Female">Female
                 <br><small></small>
             </div>
              
@@ -75,11 +75,11 @@
         <div class ="row">
             <label class="label-text" for="Dept">Department</label>
             <div class="input-text ver">
-                <input class="checkbox" type="checkbox" name="c1" value="hr">HR &nbsp;&nbsp;
-                <input class="checkbox" type="checkbox" name="c2" value="sales">Sales &nbsp;&nbsp;
-                <input class="checkbox" type="checkbox" name="c3" value="finance">Finance &nbsp;&nbsp;
-                <input class="checkbox" type="checkbox" name="c4" value="engineer">Engineer &nbsp;&nbsp;
-                <input class="checkbox" type="checkbox" name="c5" value="other">Others &nbsp;&nbsp;
+                <input class="checkbox" type="checkbox" id="dept1" name="c1" value="hr">HR &nbsp;&nbsp;
+                <input class="checkbox" type="checkbox" id="dept2" name="c2" value="sales">Sales &nbsp;&nbsp;
+                <input class="checkbox" type="checkbox" id="dept3" name="c3" value="finance">Finance &nbsp;&nbsp;
+                <input class="checkbox" type="checkbox" id="dept4" name="c4" value="engineer">Engineer &nbsp;&nbsp;
+                <input class="checkbox" type="checkbox" id="dept5" name="c5" value="other">Others &nbsp;&nbsp;
                 
             </div>
              
@@ -236,4 +236,5 @@
     
         
 </body>
+<script src="../js/editemp.js"></script>
 </html>

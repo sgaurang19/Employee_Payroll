@@ -1,4 +1,3 @@
-
 const ename = document.getElementById("name");
 const ename22 = document.getElementById("name");
 
@@ -54,13 +53,16 @@ function checkUsername(username){
         var result = regexName.test(username.value);
         if(result == 1){
             showSucess(username);
+            return 1;
         
         }else{
             showError(username, "required only characters (First letter should be capital) and length of 2 to 30");
+            return 0;
         }
     }
     else{
         showError(username, 'Name is required.');
+        return 0;
 
     }
 }
@@ -121,7 +123,8 @@ function checkDate(day, month, year){
     }
     else{
         showSucess(day);
-        console.log("right")
+        return 1;
+        // console.log("right")
     }
     var count = 30;
     var priorDate = new Date();
@@ -180,31 +183,75 @@ function getValuesCheck(dept){
 }
 function UpdateStorage(newdata){
     var EmpPayrollList = JSON.parse(localStorage.getItem("EmpPayrollList"));
+    
     if(EmpPayrollList != null){
         EmpPayrollList.push(newdata);
     }
     else{
-        EmpPayrollList = [newData];
+        EmpPayrollList = [newdata];
     }
     localStorage.setItem("EmpPayrollList", JSON.stringify(EmpPayrollList));
 }
 
-let newData = {
-
-};
 const validate = () =>{
 
     
 
 
     try{
-        checkUsername(ename);
+    var uname = checkUsername(ename);
     var pro = getRadio(profile123);
     // checkProfile(profile);
     // checkGender(gender);
     var gen = getRadio(gender123);
-    checkDate(day, month, year);
+    var DOJ = checkDate(day, month, year);
     var deptlist = getValuesCheck(dept);
+        
+    var EmpPayrollListUpdateAvailable = JSON.parse(localStorage.getItem("EmpPayrollListUpdate"))
+    if(EmpPayrollListUpdateAvailable != null){
+    var EmpPayrollListUpdate = JSON.parse(localStorage.getItem("EmpPayrollListUpdate"))[0];
+    }
+    console.log()
+    
+    if(EmpPayrollListUpdate != null){
+        let newDataUpdate = {
+
+        };
+        var Eid= EmpPayrollListUpdate._id;
+    
+        
+
+
+        newDataUpdate._name = ename.value;
+        newDataUpdate._profile_img = pro;
+        newDataUpdate._gender = gen;
+        newDataUpdate._dept = deptlist;
+        newDataUpdate._salary = document.getElementById("Salary1").value;
+        let dateContentUpdate = new Array();
+        dateContentUpdate.push(day.value);
+        dateContentUpdate.push(month.value);
+        dateContentUpdate.push(year.value);
+        newDataUpdate._doj = dateContentUpdate;
+        var idnew  = Eid;
+        
+        newDataUpdate._id = idnew;
+
+
+        let empDataUp = JSON.parse(localStorage.getItem("EmpPayrollList"));
+        var eidUp= idnew;
+        let employeePayroll_ID1 = empDataUp.find(emp1 => emp1._id == eidUp);
+        const id1 = empDataUp.map(emp1 => emp1._id).indexOf(employeePayroll_ID1._id);
+        empDataUp.splice(id1, 1);
+        localStorage.setItem("EmpPayrollList", JSON.stringify(empDataUp));
+
+        UpdateStorage(newDataUpdate);
+        localStorage.removeItem("EmpPayrollListUpdate")
+
+        
+
+    }
+    else{
+        let newData = {};
         newData._name = ename.value;
         newData._profile_img = pro;
         newData._gender = gen;
@@ -215,13 +262,30 @@ const validate = () =>{
         dateContent.push(month.value);
         dateContent.push(year.value);
         newData._doj = dateContent;
+        var id  = Math.floor((Math.random() * 10000) + 1);
+            // let empData = JSON.parse(localStorage.getItem("EmpPayrollList"));
+            // var eid= node.id;
+            // let employeePayroll_ID = empData.find(emp => emp._id == eid);
+            // const id_list = empData.map(emp => emp._id).indexOf(employeePayroll_ID._id);
+            // if(id_list == id){
+            //     var id  = Math.floor((Math.random() * 10000) + 1);
+            //     newData._id = id;
+            // }
+            // else{
+                newData._id = id;
+            // }
+       
+       
 
         console.log(newData);
-        UpdateStorage(newData);
-
+        if(uname == 1 && DOJ == 1 ){
+            UpdateStorage(newData);
+        }
+    }
 
     }catch(e){
         console.log(e);
     }
-
+    window.location.href="http://127.0.0.1:5500/pages/home.html";
 }
+
