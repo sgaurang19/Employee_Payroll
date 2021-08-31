@@ -133,80 +133,80 @@ let newEmpData1 = { };
     // localStorage.setItem("EmpPayrollListUpdate", JSON.stringify(EmpPayrollList1));
   
 }
-// function searchQuery(){
-//     // const searchvar = document.getElementById("searchKey").value.toLowerCase();
-//     // if(searchvar == ""){
-//     //     ShowEmp();
-//     // }
-//     // else{
-//     // console.log(searchvar);
-//     // makeAjaxPromiseCall("GET", site_properties.JSON_host_server, true).then(resp1 =>{
+function searchQuery(){
+    // const searchvar = document.getElementById("searchKey").value.toLowerCase();
+    // if(searchvar == ""){
+    //     ShowEmp();
+    // }
+    // else{
+    // console.log(searchvar);
+    // makeAjaxPromiseCall("GET", site_properties.JSON_host_server, true).then(resp1 =>{
     
-//     //     josnDatal1 = JSON.parse(resp1);
-//     //     // console.log(josnDatal1)
-//     //     var jsonList = josnDatal1.filter(function(user){
-//     //         user._name = user._name.toLowerCase();
-//     //        return user._name.indexOf(searchvar) > -1; 
-//     //     });
-//     //   console.log("list  "+ jsonList);
-//     // //   console.log(josnDatal1)
-//     //     for (const josnData1 of josnDatal1) {
-//     //         cont = cont + `
-//     //                     <tr>
-//     //                             <td><img src="${josnData1._profile_img}"</td>
-//     //                             <td>${josnData1._name}</td>
-//     //                             <td>${josnData1._gender}</td>
-//     //                             <td> <div class="divDept"> ${showDeptsTable(josnData1._dept)} </div></td>
-//     //                             <td><span>&#8377;</span> ${josnData1._salary}</td>
-//     //                             <td>${josnData1._doj[0]} / ${josnData1._doj[1]} / ${josnData1._doj[2]}</td>
-//     //                             <td><div class="divDept"><input id="${josnData1.id}" type="image" class="actionImg" onclick="delEmp(this)" src="../assets/img/delete_ic.png"><input type="image" id="${josnData1.id}" class="actionImg" onclick="updateEmp(this)" src="../assets/img/edit_ic.png"></div></td>
-//     //                         </tr> 
-//     //         `;
-//     //         // console.log(cont);
-//     //         empData.innerHTML = headCont + cont;
-//     //         var showCount = document.getElementById("number");
-//     //         showCount.innerHTML = josnDatal.length;
-//     //         }
+    //     josnDatal1 = JSON.parse(resp1);
+    //     // console.log(josnDatal1)
+    //     var jsonList = josnDatal1.filter(function(user){
+    //         user._name = user._name.toLowerCase();
+    //        return user._name.indexOf(searchvar) > -1; 
+    //     });
+    //   console.log("list  "+ jsonList);
+    // //   console.log(josnDatal1)
+    //     for (const josnData1 of josnDatal1) {
+    //         cont = cont + `
+    //                     <tr>
+    //                             <td><img src="${josnData1._profile_img}"</td>
+    //                             <td>${josnData1._name}</td>
+    //                             <td>${josnData1._gender}</td>
+    //                             <td> <div class="divDept"> ${showDeptsTable(josnData1._dept)} </div></td>
+    //                             <td><span>&#8377;</span> ${josnData1._salary}</td>
+    //                             <td>${josnData1._doj[0]} / ${josnData1._doj[1]} / ${josnData1._doj[2]}</td>
+    //                             <td><div class="divDept"><input id="${josnData1.id}" type="image" class="actionImg" onclick="delEmp(this)" src="../assets/img/delete_ic.png"><input type="image" id="${josnData1.id}" class="actionImg" onclick="updateEmp(this)" src="../assets/img/edit_ic.png"></div></td>
+    //                         </tr> 
+    //         `;
+    //         // console.log(cont);
+    //         empData.innerHTML = headCont + cont;
+    //         var showCount = document.getElementById("number");
+    //         showCount.innerHTML = josnDatal.length;
+    //         }
 
-//     // }).catch(err =>{
+    // }).catch(err =>{
 
-//     // });
-//     // }
-//     var input, tr, filter, table, td, i;
-//     input = document.getElementById("searchKey");
-//     // if(input == ""){
-//     //     ShowEmp();
-//     // }
-//     // else{
-//     //     console.log(input.value.toLowerCase())
-//         input.addEventListener('keyup', function(){
+    // });
+    // }
+    var input, tr, filter, table, td, i;
+    input = document.getElementById("searchKey");
+    // if(input == ""){
+    //     ShowEmp();
+    // }
+    // else{
+    //     console.log(input.value.toLowerCase())
+        input.addEventListener('keyup', function(){
             
-//             filter = input.value.toUpperCase();
-//             table = empData;
-//             tr = table.getElementsByTagName("tr");
-//             for (i=0; i<tr.length; i++){
-//                 td = tr[i].getElementsByTagName("td");
-//                 for(var j=0; j<td.length; j++){
-//                     let tdata = td[j];
-//                     if(tdata){
-//                         if(tdata.innerHTML.toUpperCase().indexOf(filter)>-1){
-//                             tr[i].style.display ="";
-//                             break;
-//                         }else{
-//                             tr[i].style.display = "none"
-//                         }
-//                     }
-//                 }
-//             }
-//             // console.log(i);
-//             // var showCount = document.getElementById("number");
-//             // showCount.innerHTML = j - tr.length;    
-//         }
+            filter = input.value.toUpperCase();
+            table = empData;
+            tr = table.getElementsByTagName("tr");
+            for (i=0; i<tr.length; i++){
+                td = tr[i].getElementsByTagName("td");
+                for(var j=0; j<td.length; j++){
+                    let tdata = td[j];
+                    if(tdata){
+                        if(tdata.innerHTML.toUpperCase().indexOf(filter)>-1){
+                            tr[i].style.display ="";
+                            break;
+                        }else{
+                            tr[i].style.display = "none"
+                        }
+                    }
+                }
+            }
+            // console.log(i);
+            // var showCount = document.getElementById("number");
+            // showCount.innerHTML = j - tr.length;    
+        }
         
-//         );
+        );
         
 
 
-//     // }
+    // }
 
-// }
+}
