@@ -7,8 +7,9 @@
     <title>Employee Payroll Home page</title>
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href ="../css/home.css">
+    
 </head>
-<body>
+<body onpageshow="tokenCheck()">
     <!-- UC1 -->
     <nav class="topHead">
         <div class="logo">
@@ -19,8 +20,13 @@
                 <span style="font-weight: 900; letter-spacing: 2px;"> PAYROLL </span></b></div>
         </div>
         
+        
         <!-- <div>EMPLOYEE <br> PAYROLL</div> -->
-        <div class="headName"></div>
+        <div class="headName">
+                <button class = "adduserbtn" onclick="logout()"> LOG OUT </button>
+                <div></div>
+        </div>
+        <script src="../js/credentials.js"></script>
     </nav>
 
 
@@ -34,11 +40,12 @@
                 ( <div class = "number" id="number">10</div>)
             </div>
             <div class = "right">
-                <button class = "searchbtn">  
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
-                </button>
+                <input type=" text"  class = "searchbtn" placeholder="Search..." id="searchKey" >
+                <button type=" submit"  placeholder="Search..." id="searchKeybtn" onclick="searchQuery()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg></button>
+                   
+           
                 <button class = "adduserbtn" onclick="window.open('index.html')"><svg xmlns="http://www.w3.org/2000/svg" width="20px"; height="20px"; margin-bottom="-3px"><path d="M0 0h24v24H0z" fill="none"/><path fill="#ffffff" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Add User </button>
             </div>
         </div>
@@ -169,10 +176,20 @@
 
                 </tr>  -->
             </table>
-            <script src="../js/table.js"></script>
+            <script src="../js/service.js"></script>
+            <script src="../service/site_properties.js"></script>
+            <!-- <script src="../js/table.js"></script> -->
+    
+    
+
         </div>
        
 
     </div>
+    
+            <script src="../js/table.js"></script>
 </body>
+<!-- <script src="../js/credentials.js"></script> -->
+
+
 </html>

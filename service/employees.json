@@ -1,0 +1,92 @@
+{
+  "employees": [
+    {
+      "id": 1454,
+      "_name": "Gaurang",
+      "_profile_img": "../assets/img/Ellipse -2.png",
+      "_gender": "Male",
+      "_dept": [
+        "hr",
+        "sales"
+      ],
+      "_salary": "159452",
+      "_doj": [
+        "12",
+        "02",
+        "1999"
+      ]
+    },
+    {
+      "_name": "Komal",
+      "_profile_img": "../assets/img/Ellipse -10.png",
+      "_gender": "Female",
+      "_dept": [
+        "hr",
+        "sales",
+        "finance"
+      ],
+      "_salary": "248015",
+      "_doj": [
+        "14",
+        "09",
+        "2009"
+      ],
+      "id": 4123
+    },
+    {
+      "id": 8714,
+      "_name": "Aditya",
+      "_profile_img": "../assets/img/Ellipse -3.png",
+      "_gender": "Male",
+      "_dept": [
+        "sales",
+        "finance"
+      ],
+      "_salary": "234405",
+      "_doj": [
+        "17",
+        "04",
+        "1999"
+      ]
+    },
+    {
+      "id": 6771,
+      "_name": "Smit",
+      "_profile_img": "../assets/img/Ellipse -2.png",
+      "_gender": "Male",
+      "_dept": [
+        "hr",
+        "finance"
+      ],
+      "_salary": "172401",
+      "_doj": [
+        "01",
+        "01",
+        "1990"
+      ]
+    },
+    {
+      "id": 8891,
+      "_name": "Piyush",
+      "_profile_img": "../assets/img/Ellipse -3.png",
+      "_gender": "Male",
+      "_dept": [
+        "hr",
+        "sales",
+        "finance"
+      ],
+      "_salary": "304726",
+      "_doj": [
+        "02",
+        "01",
+        "1990"
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "TKN": "8879427323",
+      "id": 1
+    }
+  ]
+}

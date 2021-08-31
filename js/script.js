@@ -182,15 +182,16 @@ function getValuesCheck(dept){
     return deptli;
 }
 function UpdateStorage(newdata){
-    var EmpPayrollList = JSON.parse(localStorage.getItem("EmpPayrollList"));
+    // var EmpPayrollList = JSON.parse(localStorage.getItem("EmpPayrollList"));
     
-    if(EmpPayrollList != null){
-        EmpPayrollList.push(newdata);
-    }
-    else{
-        EmpPayrollList = [newdata];
-    }
-    localStorage.setItem("EmpPayrollList", JSON.stringify(EmpPayrollList));
+    // if(EmpPayrollList != null){
+    //     EmpPayrollList.push(newdata);
+    // }
+    // else{
+    //     EmpPayrollList = [newdata];
+    // }
+    // localStorage.setItem("EmpPayrollList", JSON.stringify(EmpPayrollList));
+    // makeAjaxPromiseCall("POST",site_properties.JSON_host_server, true, newdata).then(done =>{alert("Data added");}).catch(err => {alert("Failed to upload data")})
 }
 
 const validate = () =>{
@@ -217,7 +218,7 @@ const validate = () =>{
         let newDataUpdate = {
 
         };
-        var Eid= EmpPayrollListUpdate._id;
+        var Eid= EmpPayrollListUpdate.id;
     
         
 
@@ -232,26 +233,32 @@ const validate = () =>{
         dateContentUpdate.push(month.value);
         dateContentUpdate.push(year.value);
         newDataUpdate._doj = dateContentUpdate;
-        var idnew  = Eid;
+        // var idnew  = Eid;
         
-        newDataUpdate._id = idnew;
+   
 
 
-        let empDataUp = JSON.parse(localStorage.getItem("EmpPayrollList"));
-        var eidUp= idnew;
-        let employeePayroll_ID1 = empDataUp.find(emp1 => emp1._id == eidUp);
-        const id1 = empDataUp.map(emp1 => emp1._id).indexOf(employeePayroll_ID1._id);
-        empDataUp.splice(id1, 1);
-        localStorage.setItem("EmpPayrollList", JSON.stringify(empDataUp));
+        // let empDataUp = JSON.parse(localStorage.getItem("EmpPayrollList"));
+        // var eidUp= idnew;
+        // let employeePayroll_ID1 = empDataUp.find(emp1 => emp1._id == eidUp);
+        // const id1 = empDataUp.map(emp1 => emp1._id).indexOf(employeePayroll_ID1._id);
+        // empDataUp.splice(id1, 1);
+        // localStorage.setItem("EmpPayrollList", JSON.stringify(empDataUp));
 
-        UpdateStorage(newDataUpdate);
+        // UpdateStorage(newDataUpdate);
+        makeAjaxPromiseCall("put",site_properties.JSON_host_server+`/${Eid}`, true, newDataUpdate).then(done =>{
+            window.location.href="http://127.0.0.1:5500/pages/home.html";
+        }).catch(err => {alert("Failed to upload data"+err)});
         localStorage.removeItem("EmpPayrollListUpdate")
 
         
 
     }
     else{
-        let newData = {};
+        var newData = {};
+        var id  = Math.floor((Math.random() * 10000) + 1);
+        newData.id = id;
+        
         newData._name = ename.value;
         newData._profile_img = pro;
         newData._gender = gen;
@@ -262,7 +269,7 @@ const validate = () =>{
         dateContent.push(month.value);
         dateContent.push(year.value);
         newData._doj = dateContent;
-        var id  = Math.floor((Math.random() * 10000) + 1);
+        
             // let empData = JSON.parse(localStorage.getItem("EmpPayrollList"));
             // var eid= node.id;
             // let employeePayroll_ID = empData.find(emp => emp._id == eid);
@@ -272,20 +279,22 @@ const validate = () =>{
             //     newData._id = id;
             // }
             // else{
-                newData._id = id;
+        
             // }
        
        
 
         console.log(newData);
         if(uname == 1 && DOJ == 1 ){
-            UpdateStorage(newData);
+            makeAjaxPromiseCall("post",site_properties.JSON_host_server, true, newData).then(done =>{
+            window.location.href="http://127.0.0.1:5500/pages/home.html";
+        }).catch(err => {alert("Failed to upload data"+err)});
         }
     }
 
     }catch(e){
         console.log(e);
     }
-    window.location.href="http://127.0.0.1:5500/pages/home.html";
+    // window.location.href="http://127.0.0.1:5500/pages/home.html";
 }
 

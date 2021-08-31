@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payroll</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body onload="TokenCheck()">
+    <!-- UC1 -->
+    <nav class="topHead">
+        <div class="logo">
+            <img class="logo"src="../assets/logo/logo.png" alt="logo">
+            <!-- <span>Employee</span><br><span>Payroll</span> -->
+            
+            <div class="logo-align"> <b><span style="color: #699D00; font-weight: 900;letter-spacing: 2px;">EMPLOYEE</span><br>
+                <span style="font-weight: 900; letter-spacing: 2px;"> PAYROLL </span></b></div>
+        </div>
+        
+        <!-- <div>EMPLOYEE <br> PAYROLL</div> -->
+        <div class="headName"></div>
+    </nav>
+
+    <!-- UC2 -->
+    <div class="formDesign">
+
+        <br>
+        
+    <div  >
+        
+        
+        <form class="form" id ="EmpForm1">
+            <div class="headForm"><h2>Login Page</h2></div>
+            <!-- UC2 -->
+        <div class="row">
+            <label class="label-text" for="name">Mobile:</label>
+            <input  class="input-text" type="text" id="username" placeholder="" >
+           
+        </div>
+        <br>
+        <div class="row">
+            <label class="label-text" for="name">Password:</label>
+            <input  class="input-text" type="text" id="pass" placeholder="" >
+            <small></small>
+        </div>
+        <div  class ="row">
+            <div class="label-text btn">
+            <button type="button" id="cancel"> Cancel</button></div>
+            <div class="input-text" align="right">
+                ​<button type="button" id="button" onclick="validatePassword()"> Login</button>
+                <button type="reset" id="rest"> Reset</button>
+                    
+            </div>
+           
+            <script src="../js/credentials.js"></script>
+            </div>
+           
+            </form>
+    </div>
+   
+
+    </div>
+
+        
+</body>
+    <!-- <script src="../service/site_properties.js"></script> -->
+    <script src="../js/service.js"></script>
+    <script src="../js/credentials.js"></script>
+    <script src="../js/editemp.js"></script>
+</html>

@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="showOutput">loading...</div>
+    <button type="button" onclick="AjaxCall()">Button</button>
+    
+</body>
+<script>
+    function AjaxCall(){
+    // for Text Files
+    // const xhttp = new XMLHttpRequest();
+    // xhttp.onreadystatechange = function(){
+    //     if(xhttp.readyState == 4){
+    //         console.log(xhttp.responseText)
+    //     }
+    // }
+    // xhttp.open("get", "hello.txt");
+    // xhttp.send();
+
+
+    // for JSON Server
+
+     function makeAjaxCall(methodType, url, callBack, async=false, data = null){
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(xhttp.readyState == 4 && (xhttp.status >= 200 && xhttp.status <400)){
+                callBack(xhttp.responseText);
+            }
+            else{
+               console.log("Error");
+            }
+        }
+        xhttp.open(methodType, url, async);
+
+        if(data){
+            xhttp.setRequestHeader("Content-Type","application/json");
+            xhttp.send(JSON.stringify(data));
+        }
+        else{
+            xhttp.send();
+        }
+    }
+    const baseUrl = 'http://localhost:3000/employees/';
+    // get user data
+    function getUser(data){
+        // console.log(data);
+        document.getElementById("showOutput").innerHTML = data;
+    }
+    makeAjaxCall("get", baseUrl, getUser, true);
+
+    // delete user
+    // function deleteUser(data){
+    //     console.log(data);
+    // }
+
+    function addUser(data){
+        console.log(data);
+    }
+    const baseUrl1 = 'http://localhost:3000/employees/2';
+       var dataAdd = {
+            "first_name": "Gaurang",
+            "last_name": "Eschweiasdasdler",
+            "email": "sebastian@codingtasdasdhesmartway.com",
+
+        };
+
+    makeAjaxCall("put", baseUrl1, addUser, true, dataAdd);
+    }
+</script>
+</html>
+ -->

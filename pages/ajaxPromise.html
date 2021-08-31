@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p> Promise Calls</p>
+    <div id="ShowData">loading Data...</div>
+    <button type="button" onclick="getData()">Get Data</button><br>
+    <button type="button" onclick="delData()">Delete Data</button><br>
+
+    <button type="button" onclick="pushData()">Push Data</button><br>
+    <button type="button" onclick="updateData()">Update Data</button>
+
+    <br><br>
+    <p>async/await calls</p>
+    <div id="ShowAsyncData">loading Data...</div>
+    <button type="button" onclick="getAsyncData()">Get Data</button><br>
+    <button type="button" onclick="delAsyncData()">Delete Data</button><br>
+
+    <button type="button" onclick="pushAsyncData()">Push Data</button><br>
+    <button type="button" onclick="updateAsyncData()">Update Data</button>
+
+    
+</body>
+
+    <script>
+        // Function Onclick
+        // let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+        // By Using Promise
+            function AjaxPromiseCall(methodType, url, async=true, data){
+
+                return new Promise(function(resolve, reject){
+                    let xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function(){
+                        
+                            if(xhr.readyState == 4){
+                                if(xhr.status >=200 && xhr.status<300){
+                                    resolve(xhr.responseText);
+                                }
+                                else{
+                                    reject({
+                                        status: xhr.status,
+                                        statusText :xhr.statusText
+                                    });
+                                    console.log("Error occured");
+                                }
+                        }
+                    }
+
+                    xhr.open(methodType, url, async);
+                    if(data){
+                        xhr.setRequestHeader("Content-Type","application/json");
+                        xhr.send(JSON.stringify(data));
+                    }
+                    else{
+                        xhr.send();
+                    }
+                });
+
+            }
+            //for getting Data
+            function getData(){
+                const getURL = "http://localhost:3000/employees";
+                AjaxPromiseCall("get", getURL, true).then(resp =>{
+                    document.getElementById("ShowData").innerHTML = resp;
+                }).catch(err =>{
+                    document.getElementById("ShowData").innerHTML = JSON.stringify(err);
+                });
+            }
+            function delData(){
+                const delURL = "http://localhost:3000/employees/2";
+                AjaxPromiseCall("delete", delURL, true).then(resp =>{
+                    document.getElementById("ShowData").innerHTML = resp;
+                }).catch(err =>{
+                    document.getElementById("ShowData").innerHTML = JSON.stringify(err);
+                });
+
+            }
+            function pushData(){
+                var dataAdd = {
+                    "first_name": "Gaurang",
+                    "last_name": "Shirsat",
+                    "email": "sebastian@codingtasdasdhesmartway.com"
+              };
+              const postURL = "http://localhost:3000/employees";
+                AjaxPromiseCall("post", postURL, true, dataAdd).then(resp =>{
+                    document.getElementById("ShowData").innerHTML = resp;
+                }).catch(err =>{
+                    document.getElementById("ShowData").innerHTML = JSON.stringify(err);
+                });
+            }
+            function updateData(){
+                var dataAdd = {
+                    "first_name": "bridge",
+                    "last_name": "Shirsat",
+                    "email": "sebastian@codingtasdasdhesmartway.com"
+              };
+              const putURL = "http://localhost:3000/employees/1";
+                AjaxPromiseCall("put", putURL, true, dataAdd).then(resp =>{
+                    document.getElementById("ShowData").innerHTML = resp;
+                }).catch(err =>{
+                    document.getElementById("ShowData").innerHTML = JSON.stringify(err);
+                });
+            }
+            
+            // By Using Async/Await
+            function AjaxAsyncAwaitCall(methodType, url, async=true, data){
+
+            return new Promise(function(resolve){
+                let xhr1 = new XMLHttpRequest();
+                xhr1.onreadystatechange = function(){
+                        if(xhr1.readyState == 4){
+                            if(xhr1.status >=200 && xhr1.status<300){
+                                resolve(xhr1.responseText);
+                            }
+                    }
+                }
+
+            xhr1.open(methodType, url, async);
+            if(data){
+                xhr1.setRequestHeader("Content-Type","application/json");
+                xhr1.send(JSON.stringify(data));
+            }
+            else{
+                xhr1.send();
+            }
+        });
+
+        }
+        //for getting Data
+        async function getAsyncData(){
+            const getasyncURL = "http://localhost:3000/employees";
+        
+            const GetOutput = await AjaxAsyncAwaitCall("get", getasyncURL, true);
+            document.getElementById("ShowAsyncData").innerHTML = GetOutput;
+        }
+        async function delAsyncData(){
+            const delasyncURL = "http://localhost:3000/employees/2";
+            const delOutput = await AjaxAsyncAwaitCall("delete", delasyncURL, true);
+            document.getElementById("ShowAsyncData").innerHTML = delOutput;
+
+        }
+        async function pushAsyncData(){
+            var dataAdd = {
+                "first_name": "Gaurang",
+                "last_name": "Shirsat",
+                "email": "sebastian@codingtasdasdhesmartway.com"
+            };
+            const postasyncURL = "http://localhost:3000/employees";
+            const postOutput = await AjaxAsyncAwaitCall("post", postasyncURL, true);
+            document.getElementById("ShowAsyncData").innerHTML = postOutput;
+        }
+        async function updateAsyncData(){
+            var dataAdd = {
+                "first_name": "Gaurang",
+                "last_name": "Shirsat",
+                "email": "sebastian@codingtasdasdhesmartway.com"
+            };
+            const putasyncURL = "http://localhost:3000/employees/1";
+            const puttOutput = await AjaxAsyncAwaitCall("post", putasyncURL, true);
+            document.getElementById("ShowAsyncData").innerHTML = puttOutput;
+        }
+
+    </script>
+</html>
